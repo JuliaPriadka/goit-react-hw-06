@@ -2,6 +2,8 @@ import { Field, Formik, Form, ErrorMessage } from 'formik';
 import css from '../ContactForm/contactForm.module.css';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/contactsSlice';
 
 const phoneRegExp = /[\d\s-]{6,10}$/;
 
@@ -15,7 +17,9 @@ const FormValidationSchema = Yup.object().shape({
     .required('Please fill this field'),
 });
 
-export default function ContactForm({ onAdd }) {
+export default function ContactForm() {
+  const dispatch = useDispatch();
+
   return (
     <Formik
       initialValues={{
@@ -23,7 +27,7 @@ export default function ContactForm({ onAdd }) {
         number: '',
       }}
       onSubmit={(values, actions) => {
-        onAdd({ ...values, id: nanoid() });
+        dispatch(addContact({ ...values, id: nanoid() }));
         actions.resetForm();
       }}
       validationSchema={FormValidationSchema}>
