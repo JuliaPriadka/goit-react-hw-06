@@ -6,9 +6,9 @@ const contactsSlice = createSlice({
     contacts: {
       items: [],
     },
-    filters: {
-      name: '',
-    },
+    // filters: {
+    //   name: '',
+    // },
   },
 
   reducers: {

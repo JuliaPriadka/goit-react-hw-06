@@ -6,6 +6,7 @@ import { changeFilter } from '../../redux/filtersSlice';
 export default function SearchBox() {
   const filterData = useSelector(selectNameFilter);
   const dispatch = useDispatch();
+
   return (
     <div className={css.searchboxWrapper}>
       <label htmlFor="search">Find contacts by name</label>

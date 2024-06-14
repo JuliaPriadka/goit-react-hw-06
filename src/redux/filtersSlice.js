@@ -3,9 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 const filtersSlice = createSlice({
   name: 'filters',
   initialState: {
-    contacts: {
-      items: [],
-    },
+    // contacts: {
+    //   items: [],
+    // },
     filters: {
       name: '',
     },
